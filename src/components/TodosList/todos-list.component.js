@@ -12,6 +12,13 @@ const TodosList = (props) => {
               }}
             />
             {todo.text}
+            <button
+              onClick={function () {
+                return props.onDelete(todo.id);
+              }}
+            >
+              Delete
+            </button>
           </li>
         );
       })}

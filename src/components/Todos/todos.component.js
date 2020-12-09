@@ -3,6 +3,11 @@ import { useState } from "react";
 import TodosList from "../TodosList/todos-list.component";
 import TodosHeader from "../TodosHeader/todos-header.component";
 
+function nextTodoId(todos) {
+  const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
+  return maxId + 1;
+}
+
 const Todos = () => {
   const [val, setVal] = useState("");
   const [todos, setTodos] = useState([
@@ -22,7 +27,7 @@ const Todos = () => {
   const onKeyUpHandler = (e) => {
     if (e.key === "Enter" && val !== "") {
       setTodos(
-        todos.concat({ id: todos.length + 1, text: val, completed: false })
+        todos.concat({ id: nextTodoId(todos), text: val, completed: false })
       );
       setVal("");
     }
@@ -41,8 +46,20 @@ const Todos = () => {
     setTodos(newTodos);
   };
 
+  const onDeleteHandler = (id) => {
+    const newTodos = todos.filter((todo) => {
+      if (id === todo.id) {
+        return false;
+      }
+
+      return true;
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
-    <div>
+    <div id="todos">
       <TodosHeader
         val={val}
         onChangeHandler={onChangeHandler}
@@ -50,6 +67,7 @@ const Todos = () => {
       />
       <TodosList
         todos={todos}
+        onDelete={onDeleteHandler}
         onChangeCheckbox={(id) => onChangeCheckboxHandler(id)}
       />
     </div>

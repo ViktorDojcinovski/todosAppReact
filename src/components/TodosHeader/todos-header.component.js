@@ -1,11 +1,11 @@
-const TodosHeader = (props) => {
+const TodosHeader = ({ val, onChangeHandler, onKeyUpHandler }) => {
   return (
     <div>
       <input
         type="text"
-        value={props.val}
-        onChange={props.onChangeHandler}
-        onKeyUp={props.onKeyUpHandler}
+        value={val}
+        onChange={onChangeHandler}
+        onKeyUp={onKeyUpHandler}
       />
     </div>
   );
