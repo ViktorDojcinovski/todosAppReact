@@ -1,3 +1,5 @@
+import "./todos-list.component.css";
+
 const TodosList = (props) => {
   return (
     <ul>
