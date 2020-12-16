@@ -1,4 +1,6 @@
-const TodosHeader = ({ val, onChangeHandler, onKeyUpHandler }) => {
+import withColor from "../../hocs/withColor.hoc";
+
+const TodosHeader = ({ ...props }) => {
   return (
     <div>
       <input
