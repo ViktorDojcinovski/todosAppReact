@@ -1,16 +1,27 @@
-import withColor from "../../hocs/withColor.hoc";
+import React from "react";
+import { TodosContext } from "../../contexts/todos.context";
 
-const TodosHeader = ({ ...props }) => {
-  return (
-    <div>
-      <input
-        type="text"
-        value={val}
-        onChange={onChangeHandler}
-        onKeyUp={onKeyUpHandler}
-      />
-    </div>
-  );
-};
+class TodosHeader extends React.Component {
+  render() {
+    return (
+      <>
+        <TodosContext.Consumer>
+          {(value) => {
+            return (
+              <div>
+                <input
+                  type="text"
+                  value={value.val}
+                  onChange={value.onChangeHandler}
+                  onKeyUp={value.onKeyUpHandler}
+                />
+              </div>
+            );
+          }}
+        </TodosContext.Consumer>
+      </>
+    );
+  }
+}
 
 export default TodosHeader;

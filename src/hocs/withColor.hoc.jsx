@@ -1,18 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
-const withColor = (WrappedComponent, cb) => {
-  return class extends React.Component {
-    constructor(props) {
-      super(props);
+const withColor = (WrappedComponent) => {
+  return function (props) {
+    const [color, setColor] = useState();
 
-      this.state = {
-        color: "red",
-      };
-    }
-
-    render() {
-      return <WrappedComponent auth={this.state.color} {...this.props} />;
-    }
+    return <WrappedComponent color={color} {...props} />;
   };
 };
 

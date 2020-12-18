@@ -1,13 +1,23 @@
-const TodosFooter = (props) => {
+import { TodosContext } from "../../contexts/todos.context";
+
+const TodosFooter = () => {
   return (
     <>
-      <section>
-        <h3>Actions</h3>
-        <button onClick={props.onClickCompletedHandler}>
-          Mark all completed
-        </button>
-        <button onClick={props.onClickClearHandler}>Clear completed</button>
-      </section>
+      <TodosContext.Consumer>
+        {(value) => {
+          return (
+            <section>
+              <h3>Actions</h3>
+              <button onClick={value.onClickCompletedHandler}>
+                Mark all completed
+              </button>
+              <button onClick={value.onClickClearHandler}>
+                Clear completed
+              </button>
+            </section>
+          );
+        }}
+      </TodosContext.Consumer>
     </>
   );
 };
