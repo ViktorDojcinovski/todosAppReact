@@ -8,29 +8,35 @@ const TodosList = () => {
       <TodosContext.Consumer>
         {(value) => {
           return (
-            <ul>
-              {value.todos.map((todo) => {
-                return (
-                  <li key={todo.id}>
-                    <input
-                      type="checkbox"
-                      checked={todo.completed}
-                      onChange={function () {
-                        return value.onChangeCheckboxHandler(todo.id);
-                      }}
-                    />
-                    {todo.text}
-                    <button
-                      onClick={function () {
-                        return value.onDeleteHandler(todo.id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="todoapp">
+              <ul>
+                {value.todos.map((todo) => {
+                  return (
+                    <li key={todo.id}>
+                      <div className="view">
+                        <input
+                          className="toggle"
+                          type="checkbox"
+                          checked={todo.completed}
+                          onChange={function () {
+                            return value.onChangeCheckboxHandler(todo.id);
+                          }}
+                        />
+                        <div className="todo-text">{todo.text}</div>
+
+                        <button
+                          onClick={function () {
+                            return value.onDeleteHandler(todo.id);
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           );
         }}
       </TodosContext.Consumer>

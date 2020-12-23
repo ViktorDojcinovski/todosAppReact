@@ -1,6 +1,8 @@
 import React from "react";
 import { TodosContext } from "../../contexts/todos.context";
 
+import "./todos-header.component.css";
+
 class TodosHeader extends React.Component {
   render() {
     return (
@@ -8,14 +10,16 @@ class TodosHeader extends React.Component {
         <TodosContext.Consumer>
           {(value) => {
             return (
-              <div>
+              <header className="header">
+                <h2>List of todos</h2>
                 <input
+                  className="new-todo"
                   type="text"
                   value={value.val}
                   onChange={value.onChangeHandler}
                   onKeyUp={value.onKeyUpHandler}
                 />
-              </div>
+              </header>
             );
           }}
         </TodosContext.Consumer>

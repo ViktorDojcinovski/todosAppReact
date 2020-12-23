@@ -1,25 +1,31 @@
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import Todos from "./components/Todos/todos.component";
+import Home from "./pages/Home/home.component";
+import Todos from "./pages/Todos/todos.component";
+import SingleTodo from "./pages/SingleTodo/single-todo.component";
+import AboutUs from "./pages/AboutUs/about-us.component";
+import Contact from "./pages/Contact/contact.component";
+import Header from "./common/Header/header.component";
+import Footer from "./common/Footer/footer.component";
 import { TodosContextProvider } from "./contexts/todos.context";
 
 import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <TodosContextProvider>
-        <div>
-          <header>
-            <h1>My Todos App</h1>
-          </header>
-          <h2>
-            <a href="/todos">List of todos</a>
-          </h2>
+    <TodosContextProvider>
+      <Header />
+      <>
+        <Switch>
+          <Route path="/todos/:title" component={SingleTodo} />
           <Route path="/todos" component={Todos} />
-        </div>
-      </TodosContextProvider>
-    </BrowserRouter>
+          <Route path="/about-us" component={AboutUs} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </>
+      <Footer />
+    </TodosContextProvider>
   );
 }
 
