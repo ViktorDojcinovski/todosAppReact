@@ -24,11 +24,7 @@ const TodosList = () => {
                         />
                         <div className="todo-text">{todo.text}</div>
 
-                        <button
-                          onClick={function () {
-                            return value.onDeleteHandler(todo.id);
-                          }}
-                        >
+                        <button onClick={() => value.onDeleteHandler(todo.id)}>
                           Delete
                         </button>
                       </div>

@@ -1,0 +1,9 @@
+div.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+div.formControl {
+  width: 300px;
+  margin: 20px;
+}
