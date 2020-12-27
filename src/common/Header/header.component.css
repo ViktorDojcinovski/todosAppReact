@@ -1,3 +1,10 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -15,4 +22,12 @@ li.active {
 
 li a {
   color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+}
+
+li a.active {
+  font-weight: bold;
+  color: #4a4a4a;
+  text-shadow: 0 0 2px white;
 }

@@ -5,5 +5,49 @@ div.container {
 
 div.formControl {
   width: 300px;
-  margin: 20px;
+  min-height: 80px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+div.formControl label {
+  float: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+div.formControl input,
+div.formControl textarea {
+  float: left;
+  clear: left;
+  width: calc(100% - 40px);
+  padding: 3px 20px;
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+div.formControl input {
+  margin-bottom: 30px;
+  border: none;
+  height: 40px;
+}
+
+div.formControl textarea {
+  min-height: 50px;
+  border: none;
+}
+
+button[type="submit"] {
+  background-color: #eee;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-left: 50%;
+  width: 100px;
+  transform: translateX(-50px);
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #ddd;
+  transition: all 0.3s;
 }

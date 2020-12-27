@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./header.component.css";
 
@@ -9,16 +9,24 @@ export default function Header() {
         <h1>My App</h1>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" exact activeClassName="active">
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/todos">Todos</Link>
+            <NavLink to="/todos" activeClassName="active">
+              Todos
+            </NavLink>
           </li>
           <li>
-            <Link to="/about-us">About us</Link>
+            <NavLink to="/about-us" activeClassName="active">
+              About us
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact" activeClassName="active">
+              Contact
+            </NavLink>
           </li>
         </ul>
       </header>
