@@ -28,6 +28,11 @@ export default function Header() {
               Contact
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/contact-2" activeClassName="active">
+              Contact 2
+            </NavLink>
+          </li>
         </ul>
       </header>
     </>
